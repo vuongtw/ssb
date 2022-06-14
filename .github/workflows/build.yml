@@ -5,8 +5,8 @@ on:
     branches:
       - main
 jobs:
-  tests_and_build:
-    name: Run unit tests then build
+  build:
+    name: Run unit tests, build & deploy
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
