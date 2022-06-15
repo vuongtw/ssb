@@ -1,4 +1,4 @@
-package io.github.vuongtw.ssb;
+package io.github.vuongtw.ssb.controller;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
@@ -13,21 +13,13 @@ import org.springframework.test.web.servlet.MockMvc;
 
 @SpringBootTest
 @AutoConfigureMockMvc
-public class GreetingControllerTests {
+public class HomeControllerTests {
     @Autowired
     private MockMvc mockMvc;
 
     @Test
-    public void noParamsGreetingShouldReturnDefaultMessage() throws Exception {
-        this.mockMvc.perform(get("/greeting")).andDo(print()).andExpect(status().isOk())
-                        .andExpect(jsonPath("$.content").value("Hello, World!"));
-
-    }
-
-    @Test
-    public void paramsGreetingShouldReturnTailoredMessage() throws Exception {
-        this.mockMvc.perform(get("/greeting").param("name", "Spring Community"))
-                        .andDo(print()).andExpect(status().isOk())
-                        .andExpect(jsonPath("$.content").value("Hello, Spring Community!"));
+    public void rootShouldReturnOkMessage() throws Exception {
+        this.mockMvc.perform(get("/")).andDo(print()).andExpect(status().isOk())
+                    .andExpect(jsonPath("$.content").value("Ok"));
     }
 }

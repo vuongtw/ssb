@@ -1,10 +1,12 @@
-package io.github.vuongtw.ssb;
+package io.github.vuongtw.ssb.controller;
 
 import java.util.concurrent.atomic.AtomicLong;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import io.github.vuongtw.ssb.Greeting;
 
 @RestController
 public class GreetingController {
