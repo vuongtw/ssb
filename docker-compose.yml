@@ -1,0 +1,23 @@
+version: '3.0'
+services:
+  db:
+    image: postgres:12.3
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+    ports:
+      - 15432:5432
+    environment:
+      - POSTGRES_USER=ssb
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=ssb_dev_db
+
+  liquibase:
+    image: liquibase/liquibase:latest
+    depends_on:
+      - db
+    volumes:
+      - ./database/liquibase/changelog:/liquibase/changelog/
+    command: --defaults-file=/liquibase/changelog/liquibase-dev.properties update
+    # --changeLogFile=/liquibase/changelog/changelog.xml --defaults-file=/liquibase/changelog/liquibase-dev.properties
+volumes:
+  pg_data:
