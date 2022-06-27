@@ -35,3 +35,6 @@ out/
 
 ### VS Code ###
 .vscode/
+
+### VI/VIM SWP ###
+**/*.swp
