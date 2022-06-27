@@ -1,4 +1,4 @@
-package io.github.vuongtw.ssb.controller;
+package io.github.vuongtw.ssb.controllers;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
