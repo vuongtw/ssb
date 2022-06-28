@@ -5,24 +5,24 @@ import io.github.vuongtw.ssb.models.Product;
 
 import java.math.BigInteger;
 
-import lombok.extern.log4j.Log4j2;
-import org.springframework.boot.ApplicationRunner;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import org.springframework.core.env.Environment;
 
-@Log4j2
 @SpringBootApplication
 public class SsbApplication {
+
+  private static final Logger log = LoggerFactory.getLogger(SsbApplication.class);
 
 	public static void main(String[] args) {
 		SpringApplication.run(SsbApplication.class, args);
 	}
 
   @Bean
-  public CommandLineRunner seed(ProductRepository products) {
+  CommandLineRunner seed(ProductRepository products) {
     return (args) -> {
       if (products.count() > 0) {
          log.info("Skip seeding! Database 'products' table is not empty.");

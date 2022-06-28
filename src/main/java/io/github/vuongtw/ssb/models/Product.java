@@ -17,6 +17,9 @@ public class Product {
   private String name;
   private BigInteger price;
 
+  public Product() {
+  }
+
   public Product(String name, BigInteger price) {
     this.name = name;
     this.price = price;
