@@ -1,11 +1,13 @@
 package io.github.vuongtw.ssb.models;
 
 import javax.persistence.Entity;
+import javax.persistence.Table;
 import javax.persistence.GenerationType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.math.BigInteger;
 
+@Table(name = "products")
 @Entity
 public class Product {
 

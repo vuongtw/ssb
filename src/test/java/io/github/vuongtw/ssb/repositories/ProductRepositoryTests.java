@@ -34,4 +34,12 @@ public class ProductRepositoryTests {
 		assertEquals(findById.get().getName(), product.getName());
     assertEquals(findById.get().getPrice(), product.getPrice());
 	}
+
+  @Test
+  public void testCountAndSave() {
+    Product product = new Product("Toothpaste", BigInteger.valueOf(20));
+    products.save(product);
+
+    assertEquals(products.count(), 1);
+  }
 }
